@@ -1,11 +1,29 @@
-from cmath import cos, sin
-import math
+a, b, c = int(input()), int(input()), int(input())
 
-def F(x):
-    return x*x
+if (a+b<=c or a+c<=b or b+c<=a):
+    print("треугольника не существует")
 
-    
-a, b, h = float(input()), float(input()), float(input())
-a, b, h = int(a*10000), int(b*10000), int(h*10000)
-for i in range(a, b+h, h):
-    print("i = {}, x = {}".format(float(i)/10000, F(float(i)/10000)))
+elif (c*c == a*a + b*b) or (a*a == b*b + c*c) or (b*b == a*a + c*c):
+    print("прямоугольный")
+    if (a==b or a==c or b==c):
+        print("равнобедренный")
+        if (c*c < a*a + b*b) or (a*a < b*b + c*c) or (b*b < a*a + c*c):
+            print("острый")
+        elif (c*c > a*a + b*b) or (a*a > b*b + c*c) or (b*b > a*a + c*c):
+            print("тупой")
+
+elif (a==b==c):
+    print("равносторонний")
+
+elif (a==b or a==c or b==c):
+    print("равнобедренный")
+    if (c*c < a*a + b*b) or (a*a < b*b + c*c) or (b*b < a*a + c*c):
+        print("острый")
+    elif (c*c > a*a + b*b) or (a*a > b*b + c*c) or (b*b > a*a + c*c):
+        print("тупой")
+
+elif (c*c < a*a + b*b) or (a*a < b*b + c*c) or (b*b < a*a + c*c):
+    print("острый")
+
+elif (c*c > a*a + b*b) or (a*a > b*b + c*c) or (b*b > a*a + c*c):
+    print("тупой")
